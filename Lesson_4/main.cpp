@@ -26,7 +26,8 @@ int main(int argc, char *argv[])
 
 
     qmlRegisterType<Schedule>("myTest", 1, 0, "Schedule");
-
+    qRegisterMetaType<ScheduleType>("ScheduleType");
+    qmlRegisterUncreatableType<ScheduleTypes>("myTest", 1, 0, "ScheduleType", "Not creatable as it is an enum type");
     engine.load(url);
 
     return app.exec();
